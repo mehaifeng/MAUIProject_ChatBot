@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel ="clr-namespace:ChatBot_MAUI.Viewmodels"
+             x:Class="ChatBot_MAUI.Views.ParameterConfig"
+             x:Name="ConfigParameter"
+             x:DataType="viewmodel:MainViewModel"
+             Title="参数控制"
+             Background="#11264f"
+             Shell.NavBarIsVisible="True">
+    <Grid
+        Padding="10"
+        WidthRequest="{Binding Source={x:Reference ConfigParameter}, Path=WidthRequest}">
+        <VerticalStackLayout>
+            <Grid
+                WidthRequest="{Binding Source={x:Reference ConfigParameter}, Path=WidthRequest}"
+                HeightRequest="50"
+                x:Name="LayoutOne">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <VerticalStackLayout
+                    Grid.Column="0">
+                    <Label 
+                        TextColor="White"
+                        Text="model"/>
+                    <Border
+                        StrokeThickness="0"
+                        HorizontalOptions="Start"
+                        WidthRequest="100">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="5"/>
+                        </Border.StrokeShape>
+                        <Entry
+                            Text="{Binding Parameter.Model, Mode=TwoWay}"
+                            Background="#145b7d"
+                            WidthRequest="100"/>
+                    </Border>
+                </VerticalStackLayout>
+                <Label
+                    Margin="10,0,0,0"
+                    TextColor="LightGray"
+                    Grid.Column="1"
+                    VerticalOptions="Start"
+                    Text="语言模型：默认为“text-davinci-003”"/>
+            </Grid>
+            <Grid
+                WidthRequest="{Binding Source={x:Reference ConfigParameter}, Path=WidthRequest}"
+                HeightRequest="80"
+                Margin="0,20,0,0"
+                x:Name="LayoutTwo">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <VerticalStackLayout
+                    Grid.Column="0">
+                    <Label 
+                        TextColor="White"
+                        Text="temperature"/>
+                    <Border
+                        StrokeThickness="0"
+                        HorizontalOptions="Start"
+                        WidthRequest="100">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="5"/>
+                        </Border.StrokeShape>
+                        <Entry
+                            Text="{Binding Parameter.Temperature, Mode=TwoWay}"
+                            Keyboard="Numeric"
+                            Background="#145b7d"
+                            HorizontalTextAlignment="Center"
+                            Placeholder="0-1"
+                            WidthRequest="100"/>
+                    </Border>
+                </VerticalStackLayout>
+                <Label
+                    Margin="10,0,0,0"
+                    TextColor="LightGray"
+                    Grid.Column="1"
+                    VerticalOptions="Start"
+                    Text="采样温度，默认为1，值越高主观性越高(可能偏离提问主题)，值越低客观性越高，适用于寻找明确答案 (注意：避免和top_p同时设置)"/>
+            </Grid>
+            <Grid
+                WidthRequest="{Binding Source={x:Reference ConfigParameter}, Path=WidthRequest}"
+                HeightRequest="80"
+                x:Name="LayoutThree">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <VerticalStackLayout
+                    Grid.Column="0">
+                    <Label 
+                        TextColor="White"
+                        Text="top_p"/>
+                    <Border
+                        StrokeThickness="0"
+                        HorizontalOptions="Start"
+                        WidthRequest="100">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="5"/>
+                        </Border.StrokeShape>
+                        <Entry
+                            Text="{Binding Parameter.Top_p, Mode=TwoWay}"
+                            Keyboard="Numeric"
+                            HorizontalTextAlignment="Center"
+                            Background="#145b7d"
+                            Placeholder="0-1"
+                            WidthRequest="100"/>
+                    </Border>
+                </VerticalStackLayout>
+                <Label
+                    Margin="10,0,0,0"
+                    TextColor="LightGray"
+                    Grid.Column="1"
+                    VerticalOptions="Start"
+                    Text="只考虑前top_p概率质量的令牌的结果，用于调整输出内容的质量 (注意：避免和temperature同时设置)"/>
+            </Grid>
+            <Grid
+                WidthRequest="{Binding Source={x:Reference ConfigParameter}, Path=WidthRequest}"
+                HeightRequest="80"
+                x:Name="LayoutFour">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <VerticalStackLayout
+                    Grid.Column="0">
+                    <Label 
+                        TextColor="White"
+                        Text="frequency_penalty"/>
+                    <Border
+                        StrokeThickness="0"
+                        HorizontalOptions="Start"
+                        WidthRequest="100">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="5"/>
+                        </Border.StrokeShape>
+                        <Entry
+                            Text="{Binding Parameter.Frequency_penalty, Mode=TwoWay}"
+                            Keyboard="Numeric"
+                            HorizontalTextAlignment="Center"
+                            Background="#145b7d"
+                            Placeholder="-2.0-2.0"
+                            WidthRequest="100"/>
+                    </Border>
+                </VerticalStackLayout>
+                <Label
+                    Margin="10,0,0,0"
+                    TextColor="LightGray"
+                    Grid.Column="1"
+                    VerticalOptions="Start"
+                    Text="正值会根据新标记到目前为止在文本中的现有频率来惩罚新标记，从而降低模型逐字重复同一行的可能性"/>
+            </Grid>
+            <Grid
+                WidthRequest="{Binding Source={x:Reference ConfigParameter}, Path=WidthRequest}"
+                HeightRequest="80"
+                x:Name="LayoutFive">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <VerticalStackLayout
+                    Grid.Column="0">
+                    <Label 
+                        TextColor="White"
+                        Text="presence_penalty"/>
+                    <Border
+                        StrokeThickness="0"
+                        HorizontalOptions="Start"
+                        WidthRequest="100">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="5"/>
+                        </Border.StrokeShape>
+                        <Entry
+                            Text="{Binding Parameter.Presence_penalty, Mode=TwoWay}"
+                            Keyboard="Numeric"
+                            HorizontalTextAlignment="Center"
+                            Background="#145b7d"
+                            Placeholder="-2.0-2.0"
+                            WidthRequest="100"/>
+                    </Border>
+                </VerticalStackLayout>
+                <Label
+                    Margin="10,0,0,0"
+                    TextColor="LightGray"
+                    Grid.Column="1"
+                    VerticalOptions="Start"
+                    Text="正值会根据新标记到目前为止是否出现在文本中来惩罚它们，从而增加模型讨论新主题的可能性"/>
+            </Grid>
+            <Grid
+                WidthRequest="{Binding Source={x:Reference ConfigParameter}, Path=WidthRequest}"
+                HeightRequest="50"
+                x:Name="LayoutSix">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <VerticalStackLayout
+                    Grid.Column="0">
+                    <Label 
+                        TextColor="White"
+                        Text="max_tokens"/>
+                    <Border
+                        StrokeThickness="0"
+                        HorizontalOptions="Start"
+                        WidthRequest="100">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="5"/>
+                        </Border.StrokeShape>
+                        <Entry
+                            Text="{Binding Parameter.Max_tokens, Mode=TwoWay}"
+                            Keyboard="Numeric"
+                            HorizontalTextAlignment="Center"
+                            Background="#145b7d"
+                            Placeholder="0-1"
+                            WidthRequest="100"/>
+                    </Border>
+                </VerticalStackLayout>
+                <Label
+                    Margin="10,0,0,0"
+                    TextColor="LightGray"
+                    Grid.Column="1"
+                    VerticalOptions="Start"
+                    Text="单次完成消耗的最大令牌数。"/>
+            </Grid>
+            <Label
+                Margin="0,40,0,10"
+                HorizontalOptions="Center"
+                Text="API_Key"/>
+            <Border
+                StrokeThickness="0"
+                    HorizontalOptions="Center"
+                    WidthRequest="400">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="5"/>
+                </Border.StrokeShape>
+                <Entry
+                    Text="{Binding Parameter.ApiKey, Mode=TwoWay}"
+                    HorizontalTextAlignment="Center"
+                    Background="#145b7d"
+                    WidthRequest="400"/>
+            </Border>
+            <Button
+                Command="{Binding SaveConfigCommand}"
+                Text="保存"
+                Margin="0,40,0,0"
+                WidthRequest="100"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:ChatBot_MAUI.Viewmodels"
+             xmlns:converters ="clr-namespace:ChatBot_MAUI.Converters"
+             x:Class="ChatBot_MAUI.Views.ChatPage"
+             x:DataType="viewmodel:MainViewModel"
+             Shell.FlyoutBehavior="Flyout"
+             Shell.NavBarIsVisible="True"
+             Title="主页">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ControlsConverter x:Key="ControlsConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid
+        Padding="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Border
+                StrokeThickness="0"
+                Grid.Row="0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10"/>
+            </Border.StrokeShape>
+            <ScrollView
+                x:Name="ChatScroll"
+                Padding="5"
+                Background="#11264f">
+                <!--下方的StackLayout内可生成的控件-->
+                <StackLayout x:Name="ChatStackLayout"/>
+            </ScrollView>
+            </Border>
+            <Grid
+                    Grid.Row="1"
+                    Margin="0,10,0,0">
+            <Border
+                Padding="5"
+                Background="#145b7d"
+                StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"/>
+                </Border.StrokeShape>
+                <Editor
+                    Placeholder="Begin your chat Here..."
+                    AutoSize="TextChanges"
+                    TextColor="White"
+                    MinimumHeightRequest="10"
+                    Text="{Binding Parameter.MyInput, Mode=TwoWay}"/>
+            </Border>
+        </Grid>
+
+        <Button
+            Grid.Row="2"
+            Margin="0,10,0,0"
+            Text="发送"
+            Command="{Binding SendCommand}"
+            VerticalOptions="Start">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource ControlsConverter}">
+                    <Binding Source="{x:Reference ChatStackLayout}" />
+                    <Binding Source="{x:Reference ChatScroll}"/>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+    </Grid>
+</ContentPage>

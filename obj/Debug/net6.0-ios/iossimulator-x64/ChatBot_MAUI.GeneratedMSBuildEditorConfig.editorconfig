@@ -1,0 +1,53 @@
+is_global = true
+build_property.TargetFramework = net6.0-ios
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ChatBot_MAUI
+build_property.ProjectDir = D:\DotNetSpace\ChatBot_MAUI\MAUIProject_ChatBot\
+
+[D:/DotNetSpace/ChatBot_MAUI/MAUIProject_ChatBot/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ChatBot_MAUI.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[D:/DotNetSpace/ChatBot_MAUI/MAUIProject_ChatBot/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ChatBot_MAUI.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[D:/DotNetSpace/ChatBot_MAUI/MAUIProject_ChatBot/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ChatBot_MAUI.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[D:/DotNetSpace/ChatBot_MAUI/MAUIProject_ChatBot/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ChatBot_MAUI.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[D:/DotNetSpace/ChatBot_MAUI/MAUIProject_ChatBot/Views/ChatPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ChatBot_MAUI.Views.ChatPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ChatPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ChatPage.xaml
+
+[D:/DotNetSpace/ChatBot_MAUI/MAUIProject_ChatBot/Views/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ChatBot_MAUI.Views.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\MainPage.xaml
+
+[D:/DotNetSpace/ChatBot_MAUI/MAUIProject_ChatBot/Views/ParameterConfig.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ChatBot_MAUI.Views.ParameterConfig.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ParameterConfig.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ParameterConfig.xaml
