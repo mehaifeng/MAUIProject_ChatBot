@@ -38,10 +38,10 @@ namespace ChatBot_MAUI.Tools
                     WebRequestModel.IsValidApiKey = true;
                     // 返回接收到的内容
                     string Request = await Task.FromResult(result: responType?.Choicese?.First().Text);
-                    string temp = Request.Substring(0, 2);
-                    if (temp == "\n\n")
+
+                    if (Request.Substring(0, 2) == "\n\n")
                     {
-                        return Request.Split("\n\n")[1];
+                        return Request.Substring(2, Request.Length-2);
                     }
                     return Request; 
                 }
