@@ -482,7 +482,6 @@ D:\DotNetSpace\ChatBot_MAUI\MAUIProject_ChatBot\bin\Debug\net6.0-ios\iossimulato
 D:\DotNetSpace\ChatBot_MAUI\MAUIProject_ChatBot\bin\Debug\net6.0-ios\iossimulator-x64\libxamarin-dotnet-debug.dylib
 D:\DotNetSpace\ChatBot_MAUI\MAUIProject_ChatBot\bin\Debug\net6.0-ios\iossimulator-x64\libxamarin-dotnet.a
 D:\DotNetSpace\ChatBot_MAUI\MAUIProject_ChatBot\bin\Debug\net6.0-ios\iossimulator-x64\libxamarin-dotnet.dylib
-D:\DotNetSpace\ChatBot_MAUI\MAUIProject_ChatBot\obj\Debug\net6.0-ios\iossimulator-x64\build-signature\signature
 D:\DotNetSpace\ChatBot_MAUI\MAUIProject_ChatBot\obj\Debug\net6.0-ios\iossimulator-x64\mauiimage.inputs
 D:\DotNetSpace\ChatBot_MAUI\MAUIProject_ChatBot\obj\Debug\net6.0-ios\iossimulator-x64\mauifont.inputs
 D:\DotNetSpace\ChatBot_MAUI\MAUIProject_ChatBot\obj\Debug\net6.0-ios\iossimulator-x64\mauisplash.inputs

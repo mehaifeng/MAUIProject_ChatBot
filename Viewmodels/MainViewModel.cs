@@ -37,7 +37,7 @@ namespace ChatBot_MAUI.Viewmodels
         [RelayCommand]
         public async void Send(object[] o)
         {
-            if (IsCanSend)
+            if (IsCanSend&&!string.IsNullOrWhiteSpace(parameter.MyInput))
             {
                 StackLayout layout = (StackLayout)o[0];
                 ScrollView scroll = (ScrollView)o[1];
