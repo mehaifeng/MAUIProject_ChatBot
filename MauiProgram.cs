@@ -1,4 +1,7 @@
-﻿namespace ChatBot_MAUI;
+﻿using ChatBot_MAUI.Viewmodels;
+using ChatBot_MAUI.Views;
+
+namespace ChatBot_MAUI;
 
 public static class MauiProgram
 {
@@ -12,7 +15,9 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
-
+		builder.Services.AddTransient<ParameterConfig>();
+		builder.Services.AddTransient<MainViewModel>();
+		
 		return builder.Build();
 	}
 }

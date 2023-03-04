@@ -26,7 +26,7 @@ namespace ChatBot_MAUI.Tools
                         if (responType.error.code == "invalid_api_key")
                         {
                             WebRequestModel.IsValidApiKey = false;
-                            return $"\n\nApi_Key无效，请在下方输入正确的Api_Key，并点击发送";
+                            return $"Api_Key无效";
                         }
                         else if (responType.error.message == "you must provide a model parameter")
                         {
@@ -37,8 +37,8 @@ namespace ChatBot_MAUI.Tools
                     }
                     WebRequestModel.IsValidApiKey = true;
                     // 返回接收到的内容
-                    string Request = await Task.FromResult(result: responType?.Choicese?.First().Text);
-
+                    HistoryChat.AllMessage.Add(responType?.Choicese?.First().MessageDetail);
+                    string Request = await Task.FromResult(result: responType?.Choicese?.First().MessageDetail.content);
                     if (Request.Substring(0, 2) == "\n\n")
                     {
                         return Request.Substring(2, Request.Length-2);
@@ -48,7 +48,7 @@ namespace ChatBot_MAUI.Tools
             }
             catch (Exception ex)
             {
-                return $"\n#发生错误：\n{ex}\n";
+                return $"#发生错误：\n{ex}\n";
             }
         }
     }

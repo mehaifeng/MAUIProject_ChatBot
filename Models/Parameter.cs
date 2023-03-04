@@ -9,10 +9,19 @@ namespace ChatBot_MAUI.Models
 {
     public partial class Parameter : ObservableObject
     {
+
+        /// <summary>
+        /// 模型
+        /// </summary>
+        [ObservableProperty]
+        private string model = "gpt-3.5-turbo";
+        /// <summary>
+        /// 我的输入
+        /// </summary>
+        [ObservableProperty]
+        private string question;
         [ObservableProperty]
         private string apiKey;
-        [ObservableProperty]
-        private string model = "text-davinci-003";
         [ObservableProperty]
         private double temperature = 0;
         [ObservableProperty]
@@ -26,10 +35,6 @@ namespace ChatBot_MAUI.Models
         [ObservableProperty]
         private int max_tokens = 1024;
 
-        /// <summary>
-        /// 我的输入
-        /// </summary>
-        [ObservableProperty]
-        private string myInput;
+
     }
 }

@@ -4,30 +4,44 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:view="clr-namespace:ChatBot_MAUI.Views"
     x:Class="ChatBot_MAUI.MainPage"
-    FlyoutBehavior="Flyout"
     FlyoutHeaderBehavior="Fixed"
+    Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False"
     FlyoutBackgroundColor="#102b6a"
     FlyoutWidth="200">
     <Shell.ItemTemplate>
-        <DataTemplate >
-            <Grid ColumnDefinitions="0.2*,0.8*">
-                <Label Grid.Column="1"
-                       Margin="0,20,0,20"
-                       Text="{Binding Title}"
-                       TextColor="White"
-                       VerticalTextAlignment="Center" />
+        <DataTemplate>
+            <Grid
+                Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Column="0"
+                    HorizontalOptions="End"
+                    TextColor="White"/>
+                <Label 
+                    Grid.Column="1"
+                    Text="{Binding Title}"
+                    TextColor="White"/>
             </Grid>
         </DataTemplate>
     </Shell.ItemTemplate>
     <FlyoutItem
+        Route="MainPage"
         Title="主页">
         <ShellContent
+            Title="主页"
+            Route="ChatPage"
             ContentTemplate="{DataTemplate view:ChatPage}"/>
     </FlyoutItem>
     <FlyoutItem
+        Route="BackGroundPage"
         Title="参数控制">
         <ShellContent
+            Title="参数控制"
+            Route="ConfigPage"
             ContentTemplate="{DataTemplate view:ParameterConfig}"/>
     </FlyoutItem>
 </Shell>

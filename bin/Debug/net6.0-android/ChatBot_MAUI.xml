@@ -4,16 +4,24 @@
         <name>ChatBot_MAUI</name>
     </assembly>
     <members>
-        <member name="F:ChatBot_MAUI.Models.Parameter.myInput">
+        <member name="F:ChatBot_MAUI.Models.Parameter.model">
+            <summary>
+            模型
+            </summary>
+        </member>
+        <member name="F:ChatBot_MAUI.Models.Parameter.question">
             <summary>
             我的输入
             </summary>
         </member>
-        <member name="P:ChatBot_MAUI.Models.Parameter.ApiKey">
-            <inheritdoc cref="F:ChatBot_MAUI.Models.Parameter.apiKey"/>
-        </member>
         <member name="P:ChatBot_MAUI.Models.Parameter.Model">
             <inheritdoc cref="F:ChatBot_MAUI.Models.Parameter.model"/>
+        </member>
+        <member name="P:ChatBot_MAUI.Models.Parameter.Question">
+            <inheritdoc cref="F:ChatBot_MAUI.Models.Parameter.question"/>
+        </member>
+        <member name="P:ChatBot_MAUI.Models.Parameter.ApiKey">
+            <inheritdoc cref="F:ChatBot_MAUI.Models.Parameter.apiKey"/>
         </member>
         <member name="P:ChatBot_MAUI.Models.Parameter.Temperature">
             <inheritdoc cref="F:ChatBot_MAUI.Models.Parameter.temperature"/>
@@ -32,9 +40,6 @@
         </member>
         <member name="P:ChatBot_MAUI.Models.Parameter.Max_tokens">
             <inheritdoc cref="F:ChatBot_MAUI.Models.Parameter.max_tokens"/>
-        </member>
-        <member name="P:ChatBot_MAUI.Models.Parameter.MyInput">
-            <inheritdoc cref="F:ChatBot_MAUI.Models.Parameter.myInput"/>
         </member>
         <member name="P:ChatBot_MAUI.Models.WebRequestModel.IsValidApiKey">
             <summary>

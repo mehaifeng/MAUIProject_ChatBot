@@ -37,14 +37,12 @@ namespace ChatBot_MAUI.Models
 
         public class Choices
         {
-            [JsonProperty("text")]
-            public string? Text { get; set; }
+            [JsonProperty("message")]
+            public Message MessageDetail { get; set; }
+            [JsonProperty("finish_reason")]
+            public string Finish_reason { get; set; }
             [JsonProperty("index")]
-            public string? Index { get; set; }
-            [JsonProperty("logprobs")]
-            public string? Logprobs { get; set; }
-            [JsonProperty("finish_reson")]
-            public string? Finish_reson { get; set; }
+            public int indes { get; set; }
         }
         public class Usage
         {

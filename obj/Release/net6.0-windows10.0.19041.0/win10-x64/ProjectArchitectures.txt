@@ -1,1 +1,1 @@
-D:\DotNetSpace\ChatBot_MAUI\ChatBot_MAUI.csproj;x64
+D:\DotNetSpace\MAUIProject_ChatBot\ChatBot_MAUI.csproj;x64

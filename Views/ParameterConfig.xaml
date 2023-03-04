@@ -7,7 +7,8 @@
              x:DataType="viewmodel:MainViewModel"
              Title="参数控制"
              Background="#11264f"
-             Shell.NavBarIsVisible="True">
+             Shell.NavBarIsVisible="True"
+             Shell.FlyoutBehavior="Flyout">
     <Grid
         Padding="10"
         WidthRequest="{Binding Source={x:Reference ConfigParameter}, Path=WidthRequest}">
