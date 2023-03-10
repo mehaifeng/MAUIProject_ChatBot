@@ -21,7 +21,7 @@ namespace ChatBot_MAUI.Models
         [ObservableProperty]
         private string question;
         [ObservableProperty]
-        private string apiKey;
+        public static string apiKey;
         [ObservableProperty]
         private double temperature = 0;
         [ObservableProperty]

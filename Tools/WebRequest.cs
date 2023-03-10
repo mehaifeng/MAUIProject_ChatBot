@@ -17,6 +17,7 @@ namespace ChatBot_MAUI.Tools
                 using (var client = new HttpClient())
                 {
                     client.DefaultRequestHeaders.Add("Authorization", $"Bearer {apikey}");
+                    client.Timeout = TimeSpan.FromSeconds(20);
                     var response = await client.PostAsync(requestUrl, input);
                     var responseContent = await response.Content.ReadAsStringAsync();
                     var responType = new WebRequestModel();
@@ -48,6 +49,18 @@ namespace ChatBot_MAUI.Tools
             }
             catch (Exception ex)
             {
+                if(ex.ToString().Contains($"10 seconds elapsing"))
+                {
+                    return $"#发生错误：\n请求超时了，请检查网络!";
+                }
+                else if(ex.ToString().Contains($"System.Net.WebException: Socket closed"))
+                {
+                    return $"#发生错误：\n Socket is closed";
+                }
+                if (ex.ToString().Length > 100)
+                {
+                    return $"#发生错误：\n{ex.ToString()[..100]}……";
+                }
                 return $"#发生错误：\n{ex}\n";
             }
         }

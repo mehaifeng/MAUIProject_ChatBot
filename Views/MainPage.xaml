@@ -4,44 +4,73 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:view="clr-namespace:ChatBot_MAUI.Views"
     x:Class="ChatBot_MAUI.MainPage"
-    FlyoutHeaderBehavior="Fixed"
+    FlyoutHeaderBehavior="CollapseOnScroll"
     Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False"
+    NavigationPage.HasNavigationBar="False"
     FlyoutBackgroundColor="#102b6a"
     FlyoutWidth="200">
     <Shell.ItemTemplate>
         <DataTemplate>
-            <Grid
-                Padding="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.4*"/>
-                    <ColumnDefinition Width="0.6*"/>
-                </Grid.ColumnDefinitions>
-                <Label
-                    Grid.Column="0"
-                    HorizontalOptions="End"
-                    TextColor="White"/>
-                <Label 
-                    Grid.Column="1"
-                    Text="{Binding Title}"
-                    TextColor="White"/>
-            </Grid>
+            <Border
+                Padding="20"
+                StrokeThickness="0"
+                Background="Transparent">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"/>
+                </Border.StrokeShape>
+                <Grid
+                    Padding="10,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        HorizontalOptions="Start"
+                        FontSize="24"
+                        FontFamily="iconfont"
+                        Text="{Binding Icon}"
+                        TextColor="White"/>
+                    <Label 
+                        Grid.Column="1"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Text="{Binding Title}"
+                        TextColor="White"/>
+                </Grid>
+            </Border>
         </DataTemplate>
     </Shell.ItemTemplate>
     <FlyoutItem
-        Route="MainPage"
-        Title="主页">
+        x:Name="Home"
+        Title="对话"
+        Icon="&#xe8e8;"
+        Route="MainPage">
         <ShellContent
-            Title="主页"
             Route="ChatPage"
-            ContentTemplate="{DataTemplate view:ChatPage}"/>
+            ContentTemplate= "{DataTemplate view:ChatPage}">
+        </ShellContent>
+    </FlyoutItem>
+    <FlyoutItem 
+        Title="历史对话"
+        Icon="&#xe640;">
+        <ShellContent ContentTemplate="{DataTemplate view:HistoryChat}"/>
     </FlyoutItem>
     <FlyoutItem
         Route="BackGroundPage"
+        Icon="&#xe625;"
         Title="参数控制">
-        <ShellContent
-            Title="参数控制"
-            Route="ConfigPage"
-            ContentTemplate="{DataTemplate view:ParameterConfig}"/>
+        <Tab>
+            <ShellContent
+                Route="ConfigPage"
+                Shell.FlyoutBehavior="Disabled"
+                ContentTemplate="{DataTemplate view:ParameterConfig}"/>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem
+        Title="关于"
+        Icon="&#xe7a6;">
+        <ShellContent ContentTemplate="{DataTemplate view:AboutView}"/>
     </FlyoutItem>
 </Shell>

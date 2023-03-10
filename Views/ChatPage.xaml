@@ -8,10 +8,23 @@
              x:DataType="viewmodel:MainViewModel"
              Shell.FlyoutBehavior="Flyout"
              Shell.NavBarIsVisible="True"
-             Title="主页">
+             Title="对话">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:ControlsConverter x:Key="ControlsConverter"/>
+            <Style x:Key="RespondScrollViewColor" TargetType="ScrollView">
+                <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource Key=LightRespondColor},Dark={StaticResource Key=DarkRespondColor}}"/>
+            </Style>
+            <Style x:Key="SendBorderColor" TargetType="Border">
+                <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource Key=LightSendColor},Dark={StaticResource Key=DarkSendColor}}"/>
+                <Setter Property="StrokeThickness" Value="{AppThemeBinding Light=1,Dark=0}"/>
+            </Style>
+            <Style x:Key="SendTextColor" TargetType="Editor">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Key=LightSendEditorTextColor},Dark={StaticResource Key=DarkSendEditorColor}}"/>
+            </Style>
+            <Style x:Key="RespondBorderStrokeThickness" TargetType="Border">
+                <Setter Property="StrokeThickness" Value="{AppThemeBinding Light=1,Dark=0}"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid
@@ -22,50 +35,70 @@
                 <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
             <Border
-                StrokeThickness="0"
+                Style="{StaticResource Key=RespondBorderStrokeThickness}"
                 Grid.Row="0">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="10"/>
             </Border.StrokeShape>
-            <ScrollView
-                x:Name="ChatScroll"
-                Padding="5"
-                Background="#11264f">
-                <!--下方的StackLayout内可生成的控件-->
-                <StackLayout x:Name="ChatStackLayout"/>
-            </ScrollView>
+                <ScrollView
+                    x:Name="ChatScroll"
+                    Padding="5"
+                    Style="{StaticResource Key=RespondScrollViewColor}">
+                    <!--下方的StackLayout内可生成的控件-->
+                    <StackLayout x:Name="ChatStackLayout"/>
+                </ScrollView>
             </Border>
-            <Grid
-                    Grid.Row="1"
-                    Margin="0,10,0,0">
+        <Grid
+            Grid.Row="1"
+            Margin="0,10,0,0">
+            <!--聊天输入框Border-->
             <Border
                 Padding="5"
-                Background="#145b7d"
-                StrokeThickness="0">
+                Style="{StaticResource SendBorderColor}">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10"/>
                 </Border.StrokeShape>
                 <Editor
-                    Placeholder="在这里输入你的问题..."
+                    x:Name="EditorControl"
+                    MinimumHeightRequest="15"
+                    MaximumHeightRequest="250"
                     AutoSize="TextChanges"
-                    TextColor="White"
-                    MinimumHeightRequest="10"
-                    Text="{Binding Parameter.Question, Mode=TwoWay}"/>
+                    VerticalOptions="Center"
+                    Placeholder="在这里输入你的问题..."
+                    Text="{Binding Para.Question, Mode=TwoWay}"
+                    Style="{StaticResource SendTextColor}"/>
             </Border>
         </Grid>
-
-        <Button
-            Grid.Row="2"
-            Margin="0,10,0,0"
-            Text="发送"
-            Command="{Binding SendCommand}"
-            VerticalOptions="Start">
-            <Button.CommandParameter>
-                <MultiBinding Converter="{StaticResource ControlsConverter}">
-                    <Binding Source="{x:Reference ChatStackLayout}" />
-                    <Binding Source="{x:Reference ChatScroll}"/>
-                </MultiBinding>
-            </Button.CommandParameter>
-        </Button>
+        <Grid
+            Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="4.5*"/>
+            </Grid.ColumnDefinitions>
+            <Button
+                Grid.Column="0"
+                BackgroundColor="Orange"
+                VerticalOptions="Start"
+                Margin="0,10,5,0"
+                Text="New"
+                TextColor="White"
+                Command="{Binding CreateNewTopicCommand}"
+                CommandParameter="{x:Reference ChatStackLayout}"/>
+            <Button
+                    Grid.Column="1"
+                    Margin="0,10,0,0"
+                    BackgroundColor="#2F54EB"
+                    Text="发送"
+                    TextColor="White"
+                    Command="{Binding SendCommand}"
+                    VerticalOptions="Start">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource ControlsConverter}">
+                        <Binding Source="{x:Reference ChatStackLayout}" />
+                        <Binding Source="{x:Reference ChatScroll}"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+        </Grid>
     </Grid>
 </ContentPage>

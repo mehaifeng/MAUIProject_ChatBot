@@ -1,1 +1,0 @@
-D:\DotNetSpace\MAUIProject_ChatBot\ChatBot_MAUI.csproj;x64
