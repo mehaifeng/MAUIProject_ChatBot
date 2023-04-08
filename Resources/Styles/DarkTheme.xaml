@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChatBot_MAUI.Resources.Styles.DarkTheme">
+    <Color x:Key="DarkRespondColor">#10264F</Color>
+    <Color x:Key="DarkSendColor">#125B7C</Color>
+    <Color x:Key="DarkSendBoxColor">#06AE9D</Color>
+    <Color x:Key="DarkRespondBoxColor">#6950A1</Color>
+    <Color x:Key="DarkSendTextColor">White</Color>
+    <Color x:Key="DarkRespondTextColor">White</Color>
+    <Color x:Key="DarkSendEditorColor">White</Color>
+    <Color x:Key="DarkHistoryWholeBack">#10264F</Color>
+    <Color x:Key="DarkHistoryItemBack">#66519C</Color>
+</ResourceDictionary>

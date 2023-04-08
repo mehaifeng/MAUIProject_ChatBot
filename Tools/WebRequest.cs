@@ -15,7 +15,7 @@ namespace ChatBot_MAUI.Tools
             try
             {
                 using (var client = new HttpClient())
-                {
+                 {                       
                     client.DefaultRequestHeaders.Add("Authorization", $"Bearer {apikey}");
                     client.Timeout = TimeSpan.FromSeconds(20);
                     var response = await client.PostAsync(requestUrl, input);

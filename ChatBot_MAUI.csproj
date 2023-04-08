@@ -38,23 +38,23 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-android31.0|AnyCPU'">
-	  <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+	  <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
 	  <DebugSymbols>False</DebugSymbols>
 	  <Optimize>True</Optimize>
 	  <PublishTrimmed>False</PublishTrimmed>
 	  <AndroidUseAapt2>False</AndroidUseAapt2>
 	  <EnableLLVM>True</EnableLLVM>
-	  <AndroidEnableProfiledAot>False</AndroidEnableProfiledAot>
+	  <AndroidEnableProfiledAot>True</AndroidEnableProfiledAot>
 	  <RunAOTCompilation>False</RunAOTCompilation>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-android31.0|AnyCPU'">
-	  <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+	  <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
 	  <Optimize>True</Optimize>
 	  <AndroidUseAapt2>True</AndroidUseAapt2>
 	  <EnableLLVM>True</EnableLLVM>
-	  <AndroidEnableProfiledAot>False</AndroidEnableProfiledAot>
-	  <DebugSymbols>False</DebugSymbols>
+	  <AndroidEnableProfiledAot>True</AndroidEnableProfiledAot>
+	  <DebugSymbols>True</DebugSymbols>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-maccatalyst|AnyCPU'">
