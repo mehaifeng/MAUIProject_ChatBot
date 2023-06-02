@@ -1,5 +1,6 @@
 ﻿using ChatBot_MAUI.Viewmodels;
 using ChatBot_MAUI.Views;
+using CommunityToolkit.Maui;
 
 namespace ChatBot_MAUI;
 
@@ -10,6 +11,7 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+			.UseMauiCommunityToolkit()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

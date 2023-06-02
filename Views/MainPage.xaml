@@ -42,35 +42,28 @@
             </Border>
         </DataTemplate>
     </Shell.ItemTemplate>
-    <FlyoutItem
-        x:Name="Home"
+    <ShellContent
         Title="对话"
         Icon="&#xe8e8;"
-        Route="MainPage">
-        <ShellContent
-            Route="ChatPage"
-            ContentTemplate= "{DataTemplate view:ChatPage}">
-        </ShellContent>
-    </FlyoutItem>
-    <FlyoutItem 
+        ContentTemplate="{DataTemplate view:ChatPage}"
+        Route="ChatBot_MAUI.Views.ChatPage">
+    </ShellContent>
+    <ShellContent 
         Title="历史对话"
-        Icon="&#xe640;">
-        <ShellContent ContentTemplate="{DataTemplate view:HistoryChat}"/>
-    </FlyoutItem>
-    <FlyoutItem
-        Route="BackGroundPage"
+        Icon="&#xe640;"
+        ContentTemplate="{DataTemplate view:HistoryChat}"
+        Route="ChatBot_MAUI.Views.HistoryChat">
+    </ShellContent>
+    <ShellContent
+        Title="参数控制"
         Icon="&#xe625;"
-        Title="参数控制">
-        <Tab>
-            <ShellContent
-                Route="ConfigPage"
-                Shell.FlyoutBehavior="Disabled"
-                ContentTemplate="{DataTemplate view:ParameterConfig}"/>
-        </Tab>
-    </FlyoutItem>
-    <FlyoutItem
+        ContentTemplate="{DataTemplate view:ParameterConfig}"        
+        Route="ChatBot_MAUI.Views.ParameterConfig">
+    </ShellContent>
+    <ShellContent 
         Title="关于"
-        Icon="&#xe7a6;">
-        <ShellContent ContentTemplate="{DataTemplate view:AboutView}"/>
-    </FlyoutItem>
+        Icon="&#xe7a6;"
+        ContentTemplate="{DataTemplate view:AboutView}"
+        Route="ChatBot_MAUI.Views.AboutPage">
+    </ShellContent>
 </Shell>
